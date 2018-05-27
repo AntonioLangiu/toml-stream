@@ -5,6 +5,9 @@ export default function encode (key, value, writable, path = []) {
   const tag = getTypeTag(subject)
   const codec = getCodec(tag)
 
+  if (key.match("comment.*")) {
+    codec = getCodec('comment');
+  }
   if (!codec) {
     return writable.emit(
       'error',
