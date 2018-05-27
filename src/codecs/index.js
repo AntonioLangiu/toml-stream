@@ -3,7 +3,7 @@ import { getCodec, getTypeTag } from './get.js'
 export default function encode (key, value, writable, path = []) {
   const subject = value[key]
   const tag = getTypeTag(subject)
-  const codec = getCodec(tag)
+  var codec = getCodec(tag)
 
   if (key.match("comment\d+")) {
     codec = getCodec('comment');
